@@ -21,6 +21,7 @@ public class BinaryTree {
     /**
      * create method name as insert
      * here parameter are passed name as root and val
+     *
      * @param root
      * @param val
      * @return root
@@ -48,11 +49,11 @@ public class BinaryTree {
         return root;
 
     }
-       /**
-        * create a method name as createNewNode
-        * and passing parameter in int type
-        *
-        */
+
+    /**
+     * create a method name as createNewNode
+     * and passing parameter in int type
+     */
     public Node craeteNewNode(int k) {
         /*
          * crete new node
@@ -68,6 +69,7 @@ public class BinaryTree {
     /**
      * create a method name as print
      * they are printing data
+     *
      * @param root
      */
     public void print(Node root) {
@@ -81,9 +83,9 @@ public class BinaryTree {
          *null left side
          */
         print(root.left);
-       /*
-        * data is k print
-        */
+        /*
+         * data is k print
+         */
         System.out.println(root.data);
 
         /*
@@ -103,6 +105,53 @@ public class BinaryTree {
         if (node == null)
             return 0;
         else
-            return(size(node.left) + 1 + size(node.right));
+            return (size(node.left) + 1 + size(node.right));
+    }
+
+    /**
+     *
+     * here we create nodePresent method
+     * this is parameterized method.root and value are passed
+     * boolean type method so this method give o/p is true or false type.
+     * @param root
+     * @param val
+     * @return isPresent
+     */
+    public boolean nodePresent(Node root, int val) {
+        /**
+         * if root is empty then return false
+         */
+        if (root == null) {
+            return false;
+        }
+        /*
+         * now boolean not isPresent
+         */
+
+        Boolean isPresent = false;
+
+          /**
+           * using while loop
+           * root is not empty then check
+           * value is greater than data then root is left
+           * if value is less than data then root is right side
+           * if both condition is false then isPresent is true
+           * got this true condition then stop this loop
+           * here break keyword is used for if got the true condition then loop is break
+           * now condition is true then return isPresent
+           *
+           */
+        while (root != null) {
+            if (val < root.data) {
+                root = root.left;
+            } else if (val > root.data) {
+                root = root.right;
+            } else {
+                isPresent = true;
+                break;
+            }
+
+        }
+        return isPresent;
     }
 }
