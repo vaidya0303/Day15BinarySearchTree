@@ -90,7 +90,19 @@ public class BinaryTree {
          *null right side
          */
         print(root.right);
-
     }
 
+    /*
+     * Calculate the Size For checking all nodes are added or Not
+     */
+    public int size(Node node) {
+        /*
+         *  if condition is true then node is empty if condition is false then
+         * else condition is worked
+         */
+        if (node == null)
+            return 0;
+        else
+            return(size(node.left) + 1 + size(node.right));
+    }
 }
